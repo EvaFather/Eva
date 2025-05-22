@@ -6,7 +6,7 @@
 #!date = 2023-11-04 18:35:00
 
 [Script]
-http-response=^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads.+,max-size=0,requires-body=true script-path=https://gist.githubusercontent.com/Mattraks/cf41ab5f29271cbfc13922075c54523e/raw/kp.js,timeout=10,script-update-interval=0,enable=true,爱阅跳广告直接领取 = type=http-response
+http-response=^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads.+ script-path=https://gist.githubusercontent.com/Mattraks/cf41ab5f29271cbfc13922075c54523e/raw/kp.js,timeout=10,script-update-interval=0,enable=true,max-size=0,requires-body=true,爱阅跳广告直接领取 = type=http-response
 [MITM]
 hostname = %APPEND%,api-access.pangolin-sdk-toutiao.com
 
