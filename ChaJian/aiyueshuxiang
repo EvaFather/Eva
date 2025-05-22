@@ -2,6 +2,7 @@
 #!desc=卡广告领奖励,请开启MITM
 #!openUrl = https://t.me/aiyueshuxiangy
 #!homepage = https://t.me/aiyueshuxiangy
+#!icon = https://raw.githubusercontent.com/EvaFather/Eva/main/photos/aysx.png
 #!date = 2023-11-04 18:35:00
 [Rule]
 DOMAIN,api-access.pangolin-sdk-toutiao.com,DIRECT
