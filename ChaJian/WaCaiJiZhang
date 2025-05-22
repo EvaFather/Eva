@@ -1,0 +1,72 @@
+#!name = 挖财记账去广告
+#!desc = 挖财记账app
+#!author = chxm1023
+#!icon = https://raw.githubusercontent.com/EvaFather/Eva/main/photos/wcjz.png
+#!date = 2025-05-22
+
+[Script]
+http-response ^https?:\/\/jz\.wacaijizhang\.com\/(api\/(my\/v\d|vipmember\/v\d\/index|usercenter\/userInfo)|jz-activity\/bkk-frontier\/api\/vipmember\/v\d\/index) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/wacaijizhang.js, requires-body=true, timeout=60, tag=wcjz
+
+[MITM]
+hostname = jz.wacaijizhang.com
+
+  */
+var chxm1023 = JSON.parse($response.body);
+const my = /api\/my\/v\d/;
+const vip = /(vipmember\/v\d\/index|jz-activity\/bkk-frontier\/api\/vipmember\/v\d\/index)/;
+const user = /usercenter\/userInfo/;
+
+if(my.test($request.url)){
+  chxm1023.data.vipInfo = {
+    "vipMemberType" : "挖财记账超级年会员",
+    "isVipMember" : true,
+    "expirationDate" : 4092599349000,
+    "continuous" : true,
+    "remainingDays" : 99999,
+    "consecutiveDays" : 99999
+  };
+}
+
+if(vip.test($request.url)){
+  chxm1023.data.vipInfo = {
+    ...chxm1023.data.vipInfo,
+    "adFreeVipEnable" : 1,
+    "adFreePermanentVip" : true,
+    "vipMemberEnable" : 1,
+    "continuousEnable" : 1,
+    "continuousType" : 1,
+    "expirationDate" : 4092599349000,
+    "superExpireDate" : 4092599349000,
+    "adFreeExpireDate" : 4092599349000,
+    "isPermanentVip" : true,
+    "freeSendAdFreeVipEnable" : 0,
+    "vipType" : 2,
+    "expireDaysDays" : 99999,
+    "freeSendVipEnable" : 0
+  };
+}
+if(vip.test($request.url)){
+chxm1023.data.vipInfo = {   
+...chxm1023.data.vipInfo，
+      "adFreeVipEnable": 0,
+      "matchVipTrial": true,
+      "adFreePermanentVip": true,
+      "vipMemberEnable": 6,
+      "continuousEnable": 0,
+      "continuousType": 0,
+      "expirationDate": "6666-06-06 06:06:06",
+      "superExpireDate": "6666-06-06 06:06:06",
+      "adFreeExpireDate": "6666-06-06 06:06:06",
+      "normalExpireDate": "6666-06-06 06:06:06",
+      "isPermanentVip": true,
+      "freeSendAdFreeVipEnable": 0,
+      "vipType": 2,
+      "expireDaysDays": null,
+      "freeSendVipEnable": 0
+   };
+} 
+if(user.test($request.url)){
+  chxm1023.data.isVip = 1;
+}
+
+$done({body : JSON.stringify(chxm1023)});
