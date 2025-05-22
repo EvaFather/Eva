@@ -1,0 +1,30 @@
+#!name=爱阅跳广告
+#!desc=卡广告领奖励,请开启MITM
+#!openUrl = https://t.me/aiyueshuxiangy
+#!homepage = https://t.me/aiyueshuxiangy
+#!date = 2023-11-04 18:35:00
+[Rule]
+DOMAIN,api-access.pangolin-sdk-toutiao.com,DIRECT
+DOMAIN,open.e.kuaishou.com,REJECT
+DOMAIN,video-dsp.pddpic.com,REJECT
+DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT
+DOMAIN,log-api.pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN,ether-pack.pangolin-sdk-toutiao.com,REJECT
+DOMAIN,mssdk-bu.bytedance.com,REJECT
+DOMAIN,images.pinduoduo.com,REJECT
+DOMAIN,ic.snssdk.com,REJECT
+DOMAIN,log.snssdk.com,REJECT
+DOMAIN,log-hl.snssdk.com,REJECT
+DOMAIN,tnc3-aliec2.snssdk.com,REJECT
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,app-measurement.com,REJECT
+DOMAIN-SUFFIX,umeng.com,REJECT
+DOMAIN-SUFFIX,umengcloud.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
+DOMAIN-SUFFIX,ugdtimg.com,REJECT
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+[Script]
+爱阅跳广告直接领取 = type=http-response,script-path=https://gist.githubusercontent.com/Mattraks/cf41ab5f29271cbfc13922075c54523e/raw/kp.js,pattern=^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads.+,max-size=0,requires-body=true,timeout=10,script-update-interval=0,enable=true
+[MITM]
+hostname = %APPEND%,api-access.pangolin-sdk-toutiao.com
