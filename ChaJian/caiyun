@@ -1,0 +1,56 @@
+#!name=彩云天气绿化
+#!desc=彩云天气
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ColorfulClouds.png
+
+[Rule]
+# 上传信息
+DOMAIN,gather.colorfulclouds.net,REJECT
+
+[Rewrite]
+# 普通版开屏广告(此广告不定时出现)
+^https:\/\/ad\.cyapi\.cn\/v2\/req\?app_name=weather - reject-dict
+# 7.1.9 限时福利Svip
+^https:\/\/biz\.cyapi\.cn\/p\/v1\/trial_card\/info - reject-dict
+# 7.2.0普通版修改VIP后提示账号迁移
+^https:\/\/biz\.cyapi\.cn\/api\/v1\/token\/device$ - reject-dict
+# 亲友卡
+^https:\/\/biz\.cyapi\.cn\/p\/v1\/entries - reject-dict
+# 左上角+进去推荐
+^https:\/\/starplucker\.cyapi\.cn\/v3\/config$ - reject-dict
+# 通知
+^https:\/\/starplucker\.cyapi\.cn\/v3\/notification\/message_center - reject-dict
+# 会员限时弹窗
+^https:\/\/starplucker\.cyapi\.cn\/v3\/config\/cypage\/home\/conditions\/local$ - reject-dict
+^https:\/\/starplucker\.cyapi\.cn\/v3\/config\/cypage\/home_activity\/conditions$ - reject-dict
+^https:\/\/starplucker\.cyapi\.cn\/v3\/config\/cypage\/40day\/conditions\/local$ - reject-dict
+
+[Script]
+# 赏叶赏花模块
+http-response ^https:\/\/wrapper\.cyapi\.cn\/v1\/activity\?app_name=weather script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+# 解锁旧版vip(7.20.0之前)
+http-response ^https:\/\/biz\.cyapi\.cn\/v2\/user script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+# 卫星云图 48小时预报
+http-request ^https:\/\/wrapper\.cyapi\.cn\/v1\/(satellite|nafp\/origin_images) script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, timeout=60, tag=caiyun
+
+# 7.20.0版本显示VIP
+http-response ^https?:\/\/biz\.cyapi\.cn\/api\/v1\/user_detail$ script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+# 7.22.0版本 40天趋势/60天潮汐/风 等等有时候无法加载
+http-request ^https:\/\/starplucker\.cyapi\.cn\/v3\/ script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, timeout=60, tag=caiyun
+
+# 发现-轮播
+http-response ^https:\/\/starplucker\.cyapi\.cn\/v3\/operation\/banners\?user_type=paid$ script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+# 发现-宫格
+http-response ^https:\/\/starplucker\.cyapi\.cn\/v3\/operation\/features\?user_type=paid$ script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+# 发现-官方活动
+http-response ^https:\/\/starplucker\.cyapi\.cn\/v3\/campaigns$ script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+# 发现-瀑布流
+http-response ^https:\/\/starplucker\.cyapi\.cn\/v3\/operation\/feeds script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js, requires-body=true, timeout=60, tag=caiyun
+
+[MITM]
+hostname = *.cyapi.cn
