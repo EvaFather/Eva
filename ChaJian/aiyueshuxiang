@@ -4,6 +4,7 @@
 #!homepage = https://t.me/aiyueshuxiangy
 #!icon = https://raw.githubusercontent.com/EvaFather/Eva/main/photos/aysx.png
 #!date = 2023-11-04 18:35:00
+
 [Rule]
 DOMAIN,api-access.pangolin-sdk-toutiao.com,DIRECT
 DOMAIN,open.e.kuaishou.com,REJECT
@@ -27,8 +28,7 @@ DOMAIN-SUFFIX,ugdtimg.com,REJECT
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 
 [Script]
-http-response ^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads.+. script-path=https://gist.githubusercontent.com/Mattraks/cf41ab5f29271cbfc13922075c54523e/raw/kp.js
-hostname = %APPEND% api-access.pangolin-sdk-toutiao.com
+http-response ^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads.+ script-path=https://gist.githubusercontent.com/Mattraks/cf41ab5f29271cbfc13922075c54523e/raw/kp.js, requires-body=true, timeout=10, tag=爱阅跳广告直接领取
 
-
-
+[MITM]
+hostname = api-access.pangolin-sdk-toutiao.com
