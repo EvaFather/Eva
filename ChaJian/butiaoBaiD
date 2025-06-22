@@ -1,6 +1,6 @@
 #!name=DisableBaiduJumpAction
-#!desc=DisableBaiduJumpAction
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1067.png
+#!desc=Safi百度不跳转
+#!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/baiduliulan.png
 
 [Script]
 # > 百度不跳转
