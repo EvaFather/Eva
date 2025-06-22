@@ -1,0 +1,10 @@
+#!name=DisableBaiduJumpAction
+#!desc=DisableBaiduJumpAction
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1067.png
+
+[Script]
+# > 百度不跳转
+http-request ^https?:\/\/.*\.baidu\.com\/.+ script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/Purity/DisableBaiduJumpAction.js, timeout=60, tag=DisableBaiduJumpAction
+
+[MITM]
+hostname = *.baidu.com
