@@ -29,7 +29,7 @@ DOMAIN-SUFFIX,doubleclick.net,REJECT
 [Script]
 http-response ^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads.+. script-path=https://gist.githubusercontent.com/Mattraks/cf41ab5f29271cbfc13922075c54523e/raw/kp.js,max-size=0,requires-body=true,timeout=10,script-update-interval=0,enable=true,max-size=0,requires-body=true
 [MITM]
-hostname = %APPEND%,api-access.pangolin-sdk-toutiao.com
+hostname = %APPEND% api-access.pangolin-sdk-toutiao.com
 
 
 
