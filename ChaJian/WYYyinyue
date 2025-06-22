@@ -1,0 +1,16 @@
+#!name=网易云音乐vip
+#!desc=不知道还能不能用
+#!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/wyyun.png
+
+[Rewrite]
+^https?:\/\/interface\d?\.music\.163\.com\/e?api\/vip\/cashier\/tspopup\/get - reject-200
+
+[Script]
+http-request ^https?:\/\/(?:ipv4|interface\d?)\.music\.163\.com\/e?api\/(mine\/(collect|rn)\/header\/info|v\d\/user\/detail\/\d+|vipnewcenter\/app\/resource\/newaccountpage|music-vip-membership\/(client|front)\/vip\/info|batch|playlist\/privilege|search\/complex\/page|v\d\/(discovery\/recommend\/songs|playlist\/detail)) script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-header.js, timeout=30, tag=replaceHeader, argument=(%5Cr%5Cn)x-aeapi%3A.%2B(%5Cr%5Cn)-%3E%241x-aeapi%3A%20false%242
+
+http-response ^https?:\/\/interface\d?\.music\.163\.com\/e?api\/(mine\/(collect|rn)\/header\/info|v\d\/user\/detail\/\d+|vipnewcenter\/app\/resource\/newaccountpage|music-vip-membership\/(client|front)\/vip\/info|batch|playlist\/privilege|search\/complex\/page|v\d\/(discovery\/recommend\/songs|playlist\/detail)) script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/NeteaseCloudMusic/netease.js, requires-body=true, timeout=60, tag=netease
+
+http-request ^https?:\/\/interface\d?\.music\.163\.com\/e?api\/(song\/enhance\/player\/url\/v\d|vipauth\/app\/auth\/query) script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/NeteaseCloudMusic/netease.js, requires-body=true, timeout=60, tag=netease
+
+[MITM]
+hostname = interface*.music.163.com
