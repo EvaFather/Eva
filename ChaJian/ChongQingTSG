@@ -1,6 +1,6 @@
 #!name=cqxhsd
 #!desc=cqxhsd
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1098.png
+#!icon=https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Cqxhsd.pngDoraemon-1098.png
 
 [Script]
 http-request ^https:\/\/wx\.cqxhsd\.cn:(8888|8889)\/ASHX2\/PERSONAL\.ashx script-path=https://gist.githubusercontent.com/Sliverkiss/b2ed21b421b5113053e8f9d3c64f9c38/raw/cqxhsd.js, requires-body=true, timeout=60, tag=cqxhsd
