@@ -1,0 +1,10 @@
+#!name=TestFlightDownload
+#!desc=TestFlight解除区域限制
+#!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/tf.png
+# 该订阅仅适用于QuantumultX, 用于更新TestFlight App时, 提示"APP不可用"问题. 解除区域限制.
+
+[Script]
+http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js, requires-body=true, timeout=60, tag=TF_Download
+
+[MITM]
+hostname = testflight.apple.com
