@@ -6,7 +6,7 @@
 
 [Script]
 http-response ^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/newSplash
-http-response ^https?:\/\/jz\.wacaijizhang\.com\/(api(my\/v\d|vipmember\/v\d\/index|usercenter\/userInfo)|jz-activity\/bkk-frontier\/api\/vipmember\/v\d\/index) script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/wacaijizhang.js, requires-body=true, timeout=60, tag=wcjz
+http-response ^https?:\/\/jz\.wacaijizhang\.com\/(api(my\/v\d|vipmember\/v\d\/index|usercenter\/userInfo)|jz-activity\/bkk-frontier\/api\/vipmember\/v\d\/index) requires-body=true, timeout=60, tag=wcjz
 http-response ^https?:\/\/jz\.wacai\.com 
 [Rewrite]
 # 右下角悬浮广告
