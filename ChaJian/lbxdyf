@@ -5,5 +5,7 @@
 [Script]
 http-request ^https:\/\/mall\.lbxcn\.com\/mall\/scc-point-member\/crm-api\/bonus\/sign-in script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/LKXDYF.js, requires-body=true, timeout=60, tag=LKXDYF
 
+cron "1 0 * * *" script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/LKXDYF.js, timeout=120, tag=老百姓大药房签到
+
 [MITM]
 hostname = mall.lbxcn.com
