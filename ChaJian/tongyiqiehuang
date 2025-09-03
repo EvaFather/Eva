@@ -1,0 +1,9 @@
+#!name=统一茄黄四期
+#!desc=tyqhV4
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1053.png
+
+[Script]
+http-request ^https:\/\/farms\.247\.hzguanqi\.com\/api\/login script-path=https://gist.githubusercontent.com/Sliverkiss/3fac64bfaa28905d68029c466bf79af0/raw/tyqhV4.js, requires-body=true, timeout=60, tag=tyqhV4
+
+[MITM]
+hostname = farms.247.hzguanqi.com
