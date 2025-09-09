@@ -1,6 +1,6 @@
 #!name=同城旅行
 #!desc=tclx_privateSign
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1086.png
+#!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/tclx.png
 
 [Script]
 http-request ^https:\/\/cvg\.17usoft\.com\/activity\/checkin\/getLotteryPrize script-path=https://gist.githubusercontent.com/Sliverkiss/68223d6e17db157403f4dff98625b648/raw/tclx_privateSign.js, requires-body=true, timeout=60, tag=tclx_privateSign
