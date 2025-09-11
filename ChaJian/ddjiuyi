@@ -3,6 +3,7 @@
 #!icon= 
 
 [Script]
-http-request ^https?:\/\/vues\.dd1x\.cn\/api\/v2\/member\/bind_more_member_by_tel url script-request-header https://script.levifree.qzz.io/ddyxhs.js
+http-request ^https?:\/\/vues\.dd1x\.cn\/api\/v2\/member\/bind_more_member_by_tel script-path=https://script.levifree.qzz.io/ddyxhs.js, requires-body=true, timeout=60, tag=tclx_privateSign
+
 [MITM]
 hostname = vues.dd1x.cn
