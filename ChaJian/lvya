@@ -1,8 +1,0 @@
-#!name=绿芽
-#!desc=lzly
-#!icon= 
-
-[Script]
-http-request ^https:\/\/sc\.lvyajifen\.com\/api\/auth\/info\/ script-path=https://script.levifree.qzz.io/lzly.js
-[MITM]
-hostname = sc.lvyajifen.com
