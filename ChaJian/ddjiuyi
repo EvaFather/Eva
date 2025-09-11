@@ -1,0 +1,8 @@
+#!name=铛铛旧衣回收
+#!desc=ddyxhs_data
+#!icon= 
+
+[Script]
+http-request ^https?:\/\/vues\.dd1x\.cn\/api\/v2\/member\/bind_more_member_by_tel url script-request-header https://script.levifree.qzz.io/ddyxhs.js
+[MITM]
+hostname = vues.dd1x.cn
