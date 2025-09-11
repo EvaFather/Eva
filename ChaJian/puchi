@@ -3,7 +3,7 @@
 #!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/PuChi.png
 
 [Script]
-http-request ^https:\/\/puci\.robertspace\.cn\/api\/system\/user\/user_info\/? script-path=https://script.levifree.qzz.io/puci.js, requires-body=true, timeout=60, tag=pc
+http-request ^https:\/\/puci\.robertspace\.cn\/api\/system\/user\/user_info\/? script-path=https://script.levifree.qzz.io/puci.js, requires-body=true, timeout=60, tag=puci
 
 [MITM]
 hostname = puci.robertspace.cn
