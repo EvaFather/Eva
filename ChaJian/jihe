@@ -1,0 +1,9 @@
+#!name=极核
+#!desc=zeeho
+#!icon=https://raw.githubusercontent.com/leiyiyan/resource/main/icons/zeeho.png
+
+[Script]
+http-response ^https:\/\/tapi\.zeehoev\.com\/v1\.0\/mine\/cfmotoservermine\/setting script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/zeeho/zeeho.js, requires-body=true, timeout=60, tag=极核Cookie
+
+[MITM]
+hostname = tapi.zeehoev.com
