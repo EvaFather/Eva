@@ -1,0 +1,10 @@
+#!name=维迈通多多
+#!desc=vimoto
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1094.png
+
+[Script]
+# 获取 Cookie
+http-request ^http?:\/\/eco\.trantor\.top\:8088\/ecosystem\/integral\/userIntegral\/myIntegral script-path=https://raw.githubusercontent.com/leiyiyan/resource/main/script/vimoto/vimoto.js, timeout=60, tag=维迈通多多Token
+
+[MITM]
+hostname = eco.trantor.top
