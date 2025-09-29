@@ -1,6 +1,6 @@
 #!name=维迈通多多
 #!desc=vimoto
-https://raw.githubusercontent.com/EvaFather/Eva/main/photos/wmtdd.png
+#!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/wmtdd.png
 
 [Script]
 # 获取 Cookie
