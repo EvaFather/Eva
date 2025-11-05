@@ -1,3 +1,6 @@
+#!name=长安
+#!desc=不知道还能不能用
+
 [rewrite_local]
 ^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* url script-request-body https://script.levifree.qzz.io/topspace.js
 ^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* url script-response-body https://script.levifree.qzz.io/topspace.js
