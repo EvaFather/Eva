@@ -3,7 +3,7 @@
 #!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/lmf.png
 
 [Script]
-http-request ^https:\/\/lmf\.lvmifo\.com\/api\/5dca57afa379e\?m=getUserInfoExte script-path=lmf.js, requires-body=true, timeout=60, tag=lmf
+http-request ^https:\/\/lmf\.lvmifo\.com\/api\/5dca57afa379e\?m=getUserInfoExte script-path=https://gist.githubusercontent.com/Boyce3/33331940208b1569ce8ecaffb93205d2/raw/lmf.js, requires-body=true, timeout=60, tag=lmf
 
 [MITM]
 hostname = lmf.lvmifo.com
