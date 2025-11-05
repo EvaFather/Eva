@@ -1,0 +1,8 @@
+[rewrite_local]
+^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* url script-request-body https://script.levifree.qzz.io/topspace.js
+^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* url script-response-body https://script.levifree.qzz.io/topspace.js
+^https://m\.sda\.changan\.com\.cn/app-apigw/sda-zone-api/api/v1/draw/inviteIndex.* url script-request-body https://script.levifree.qzz.io/topspace.js
+^https://m\.sda\.changan\.com\.cn/app-apigw/sda-zone-api/api/v1/draw/inviteIndex.* url script-response-body https://script.levifree.qzz.io/topspace.js
+
+[mitm]
+hostname = m.sda.changan.com.cn
