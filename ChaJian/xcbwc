@@ -1,0 +1,9 @@
+#!name=小蚕
+#!desc=小蚕霸王餐获取token
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1015.png
+
+[Script]
+http-response ^https:\/\/gw\.xiaocantech\.com\/rpc script-path=https://gist.githubusercontent.com/Sliverkiss/250a02315f0a2c99f42da3b3573375c8/raw/xcbwc.js, requires-body=true, timeout=60, tag=xcbwc
+
+[MITM]
+hostname = gw.xiaocantech.com
