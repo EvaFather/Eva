@@ -1,11 +1,16 @@
-#!name=长安
-#!desc=不知道还能不能用
+#!name=TopSpace获取Token
+#!desc=TopSpace小程序
+#!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/TopSpace.png
+#!date = 2025-11
 
 [Script]
-http-request ^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* url script-request-body https://script.levifree.qzz.io/topspace.js
-http-request ^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* url script-response-body https://script.levifree.qzz.io/topspace.js
-http-request ^https://m\.sda\.changan\.com\.cn/app-apigw/sda-zone-api/api/v1/draw/inviteIndex.* url script-request-body https://script.levifree.qzz.io/topspace.js
-http-request ^https://m\.sda\.changan\.com\.cn/app-apigw/sda-zone-api/api/v1/draw/inviteIndex.* url script-response-body https://script.levifree.qzz.io/topspace.js
+http-request ^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* script-path=https://script.levifree.qzz.io/topspace.js, requires-body=true, timeout=60, tag=topspace
 
-[mitm]
+http-response ^https://m\.sda\.changan\.com\.cn/app-apigw/appauth/sda-app/api/v4/user/refresh-token.* script-path=https://script.levifree.qzz.io/topspace.js, requires-body=true, timeout=60, tag=topspace
+
+http-request ^https://m\.sda\.changan\.com\.cn/app-apigw/sda-zone-api/api/v1/draw/inviteIndex.* script-path=https://script.levifree.qzz.io/topspace.js, requires-body=true, timeout=60, tag=topspace
+
+http-response ^https://m\.sda\.changan\.com\.cn/app-apigw/sda-zone-api/api/v1/draw/inviteIndex.* script-path=https://script.levifree.qzz.io/topspace.js, requires-body=true, timeout=60, tag=topspace
+
+[MITM]
 hostname = m.sda.changan.com.cn
