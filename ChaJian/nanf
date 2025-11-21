@@ -1,6 +1,6 @@
 #!name=南孚
 #!desc=NanFu
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1077.png
+#!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/NanFu.png
 
 [Script]
 http-response https://thor.weidian.com/promotion/shopcoin.buyer.queryShopCoinBuyerPool/1.0 script-path=https://github.mimic.us.kg/Sliverkiss/private/main/Script/nflst.js, requires-body=true, timeout=60, tag=nflst
