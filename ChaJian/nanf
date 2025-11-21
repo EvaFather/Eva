@@ -1,9 +1,11 @@
-#!name=南孚
-#!desc=NanFu
-#!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/NanFu.png
+#!name = 南孚零售通订货平台获取Token
+#!desc = 南孚零售通订货平台小程序
+#!author = Sliverkiss
+#!icon = https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/NanFu.png
+#!date = 2024-11-07
 
 [Script]
-http-response https://thor.weidian.com/promotion/shopcoin.buyer.queryShopCoinBuyerPool/1.0 script-path=https://github.mimic.us.kg/Sliverkiss/private/main/Script/nflst.js, requires-body=true, timeout=60, tag=nflst
+http-response https://thor.weidian.com/promotion/shopcoin.buyer.queryShopCoinBuyerPool/1.0 script-path=https://gist.githubusercontent.com/Boyce3/a05c74fac57bcf1675cdcc097fb9827e/raw/521006fc700a8f4a792d2e03b239002318290d12/NanFu.js, requires-body=true, timeout=60, tag=南孚零售通订货平台
 
 [MITM]
 hostname = thor.weidian.com
