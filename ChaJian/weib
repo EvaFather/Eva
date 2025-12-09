@@ -1,0 +1,11 @@
+#!name = 微博获取Token
+#!desc = 微博App
+#!author = GoodHolidays
+#!icon = https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/WeiBo.png
+#!date = 2024-10-19
+
+[Script]
+http-request https:\/\/api\.weibo\.cn\/\d\/users\/show script-path=https://raw.githubusercontent.com/GoodHolidays/Scripts/master/Task/weibo.js, timeout=60, tag=微博
+
+[MITM]
+hostname = api.weibo.cn
