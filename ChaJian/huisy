@@ -1,0 +1,11 @@
+#!name = 回收猿获取Token
+#!desc = 回收猿小程序
+#!author = Sliverkiss
+#!icon = https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/HuiShouYuan.png
+#!date = 2024-10-19
+
+[Script]
+http-response ^https:\/\/www\.52bjy\.com\/api\/app\/hsy\.php\?action=user&appkey=1079fb245839e765&merchant_id=2&method=center&username=.+ script-path=https://gist.githubusercontent.com/Sliverkiss/86757c4beac9d48ebe76cc436900a021/raw/hsyhs.js, requires-body=true, timeout=60, tag=hsyhs
+
+[MITM]
+hostname = www.52bjy.com
