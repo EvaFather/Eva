@@ -1,9 +1,1 @@
-#!name=唐货街
-#!desc=tanghuojie
-#!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/THJ.png
 
-[Script]
-http-request ^https:\/\/shop-api\.erunli\.com\/gw-shop\/app\/v1\/user\/detail script-path=https://gist.githubusercontent.com/Sliverkiss/922fb7745a65676f37ab6c1d59d09972/raw/thj.js, requires-body=true, timeout=600, tag=thj
-
-[MITM]
-hostname = shop-api.erunli.com
