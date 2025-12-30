@@ -1,11 +1,1 @@
-#!name = IQOO获取Token-Sliverkiss版本
-#!desc = IQOO小程序
-#!author = Sliverkiss
-#!icon = https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/IQOO.png
-#!date = 2024-10-19
 
-[Script]
-http-response ^https:\/\/bbs-api\.iqoo\.com\/api\/v3\/user\?userId= script-path=https://gist.githubusercontent.com/Sliverkiss/bfc5527ad3ea8ac7b0820ca442442452/raw/iqoo.js, requires-body=true, timeout=60, tag=IQOO社区获取
-
-[MITM]
-hostname = bbs-api.iqoo.com
