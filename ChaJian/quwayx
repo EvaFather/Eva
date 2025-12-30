@@ -1,9 +1,1 @@
-#!name=qwyx
-#!desc=qwyx
-#!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/qwxy.png
 
-[Script]
-http-response ^https:\/\/api\.quwayouxuan\.com\/login\/third\.do script-path=https://gist.githubusercontent.com/Sliverkiss/d14e3e513c78a0d9da1ceba2f85b8e28/raw/qwyx.js, requires-body=true, timeout=60, tag=qwyx
-
-[MITM]
-hostname = api.quwayouxuan.com
