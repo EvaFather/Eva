@@ -1,11 +1,1 @@
-#!name = 粉象生活获取Token
-#!desc = 粉象生活App
-#!author = Sliverkiss
-#!icon = https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/fxsh.png
-#!date = 2024-10-19
 
-[Script]
-http-response ^https:\/\/api\.fenxianglife\.com\/njia\/users\/info script-path=https://gist.githubusercontent.com/Sliverkiss/fcfab421bbe63d10948f48a7baa5a6ea/raw/fxsh.js, requires-body=true, timeout=60, tag=粉象生活
-
-[MITM]
-hostname = api.fenxianglife.com
