@@ -1,9 +1,1 @@
-#!name=rbxj
-#!desc=rbxj
-#!icon=https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/zgrb.png
 
-[Script]
-http-request ^https:\/\/m\.picclife\.cn\/chicken-api\/h5login script-path=https://gist.githubusercontent.com/Sliverkiss/354b1080735241fd1c7baa62598302d5/raw/rbxj.js, timeout=60, tag=rbxj
-
-[MITM]
-hostname = m.picclife.cn
