@@ -1,1 +1,11 @@
+#!name=一道顺
+#!desc=wdj360
+#!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/YDS.png
+
+
+[Script]
+http-response ^https:\/\/devapi\.wgj360\.com\/api\/user\/index script-path=https://gist.githubusercontent.com/Sliverkiss/9995179bd6138c1408bb98c3a7149b0a/raw/wdj360.js, requires-body=true, timeout=60, tag=wdj360
+
+[MITM]
+hostname = devapi.wgj360.com
 
