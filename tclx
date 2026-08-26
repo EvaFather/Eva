@@ -1,0 +1,15 @@
+#!name = 同程旅行自动签到
+#!desc = 自动签到同程旅行并完成每日任务，支持多账号自动收集与轮询。
+#!icon = https://raw.githubusercontent.com/EvaFather/Eva/main/photos/tclx.png
+#!author = Node Script
+#!homepage = https://github.com/
+
+[Script]
+# 获取多账号 Header Cookie
+http-request ^https:\/\/app\.17u\.cn\/welfarecenter\/index\/signIndex script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tongcheng-trip/tongcheng-trip.js, requires-body=false, tag=获取同程旅行账号信息
+
+# 每日定时签到任务 (每天 12:05 执行)
+cron "5 12 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tongcheng-trip/tongcheng-trip.js, timeout=300, tag=同程旅行每日签到
+
+[Mitm]
+hostname = app.17u.cn
