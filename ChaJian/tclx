@@ -1,9 +1,15 @@
 #!name=同城旅行
-#!desc=tclx_privateSign
+#!desc=tclx
 #!icon=https://raw.githubusercontent.com/EvaFather/Eva/main/photos/tclx.png
-
 [Script]
-http-request ^https:\/\/cvg\.17usoft\.com\/activity\/checkin\/getLotteryPrize script-path=https://gist.githubusercontent.com/Sliverkiss/68223d6e17db157403f4dff98625b648/raw/tclx_privateSign.js, requires-body=true, timeout=60, tag=tclx_privateSign
+# 捕获请求头，获取signIndex请求头
+http-request ^https:\/\/app\.17u\.cn\/welfarecenter\/index\/signIndex script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tongcheng-trip/tongcheng-trip.js, tag=同程旅行-捕获请求头, require-body=false
+
+# 定时签到任务，每天12点05分执行
+cron "5 12 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tongcheng-trip/tongcheng-trip.js, timeout=300, tag=同程旅行-自动签到
 
 [MITM]
-hostname = cvg.17usoft.com
+hostname = app.17u.cn
+
+[Panel]
+同程旅行签到 = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tongcheng-trip/tongcheng-trip.js, title=同程旅行签到, content=点击运行手动执行签到
