@@ -79,9 +79,9 @@ $.succCount = 0;
 function getDebug(){ try{ const v=$.isNode() ? process.env.IS_DEBUG : $.getdata('is_debug'); return /^(true|1|yes|on)$/i.test(String(v||'')); }catch(_e){ return false; } }
 $.is_debug = getDebug();
 /** 敏感值脱敏: 默认只显示前3+后3 (token/手机号等) */
-function maskString(s){
-  if(s==null) return '';
-  const str=String(s);
+function maskString(){
+  if(==null) return '';
+  const str=String();
   if(str.length<=8) return str.slice(0,3)+'***';
   return str.slice(0,3)+'****'+str.slice(-3);
 }
@@ -420,12 +420,12 @@ class UserInfo {
     }
 }
 
-// 获取Cookie (四端抓包双模式 - 已修复A/B端相互覆盖Bug)
+// 获取Cookie (Loon请求头抓包专用 - 已修复变量报错)
 async function getCookie() {
     try {
         let endKey = 'A';
         try {
-            const reqUrl = ($request && ($request.url || $request.URL)) || '';
+            const reqUrl = ($request && ($request.url || $request.网站)) || '';
             const pm = reqUrl.match(/platformKey=([A-Za-z0-9]{20,})/i);
             if (pm) {
                 if (pm[1] === APP_LIST.B.platformKey) endKey = 'B';
@@ -437,27 +437,16 @@ async function getCookie() {
             }
         } catch(_e) {}
 
-        let token='', userId='', userName='';
-        if (typeof $response !== 'undefined' && $response && $response.body) {
-            const Body = $.toObj($response.body);
-            if (Body && Body.data && Body.data.token) {
-                token = "bearer " + Body.data.token;
-                userId = String((Body.data.user && Body.data.user.userId) || '');
-                userName = String((Body.data.user && (Body.data.user.userPhone||Body.data.user.phone||Body.data.user.mobile)) || '');
-            }
-        } else if ($request && $request.headers) {
+        let token = '';
+        if (typeof $request !== 'undefined' && $request && $request.headers) {
             token = String($request.headers.Authorization || $request.headers.authorization || '').trim();
             if (token && !/^bearer\s/i.test(token) && /^\S/.test(token)) token = "bearer " + token;
         }
         if (!token) return;
 
         let acc = null;
-        if (userId) {
-            acc = userCookie.find(e => String(e.userId) === String(userId));
-        }
-        if (!acc) {
-            acc = userCookie.find(e => (e.A && e.A.token === token) || (e.B && e.B.token === token) || (e.token === token));
-        }
+        acc = userCookie.find(e => (e.A && e.A.token === token) || (e.B && e.B.token === token) || (e.token === token));
+        
         if (!acc && userCookie.length > 0) {
             const lastAcc = userCookie[userCookie.length - 1];
             if (!lastAcc[endKey] || !lastAcc[endKey].token) {
@@ -465,20 +454,17 @@ async function getCookie() {
             }
         }
         if (!acc) {
-            acc = { userId: userId || '', userName: '', A: {}, B: {} };
+            acc = { userId: '', userName: '', A: {}, B: {} };
             userCookie.push(acc);
         }
 
-        if (userId) acc.userId = userId;
-        if (userName) acc.userName = acc.userName || userName;
         if (!acc.A) acc.A = {};
         if (!acc.B) acc.B = {};
         
-        // 关键：独立写入对应端，A和B互不影响，彻底解决覆盖问题
         acc[endKey] = { token };
 
         $.setjson(userCookie, ckName);
-        const uname = maskString(userName || (userId ? userId : token.replace(/^bearer\s/i,'')) || endKey);
+        const uname = maskString(token.replace(/^bearer\s/i,'') || endKey);
         $.msg($.name, `🎉账号[${uname}]更新 ${APP_LIST[endKey].label} token成功!`, ``);
     } catch (e) {
         $.log(`抓包失败: ${e && e.message ? e.message : e}`);
