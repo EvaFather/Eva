@@ -4,10 +4,10 @@
 #!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/MaYiHuiShou.png
 
 [Script]
-# 1. 抓包拦截规则：拦截业务接口自动获取 Authorization (支持端A/端B自动识别)
+# 1. 抓包拦截规则：拦截业务接口自动获取 Token (自动识别端A/端B)
 http-request ^https:\/\/openapp\.fmy90\.com\/(user|shop|sign|active|step|home)\/ script-path=https://gist.githubusercontent.com/Sliverkiss/d744c74d780f47cd85f6980ca5014170/raw/fyhs.js, tag=飞蚂蚁回收获取Token
 
-# 2. 定时签到任务：每天 10点10分、21点10分自动执行
+# 2. 定时签到任务：每天 10点10分、21点10分自动执行双端签到与任务
 cron 10 10,21 * * * https://gist.githubusercontent.com/Sliverkiss/d744c74d780f47cd85f6980ca5014170/raw/fyhs.js, tag=飞蚂蚁回收定时签到
 
 [Mitm]
