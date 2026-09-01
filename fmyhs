@@ -1,21 +1,16 @@
-#!name=飞蚂蚁回收
-#!desc=飞蚂蚁回收双小程序签到/任务/抓包（端A+端B）
+#!name=飞蚂蚁回收自动化
+#!desc=配合本地 fyhs.js 脚本，实现自动抓取 Token 与双端定时签到任务。
+#!author=Sliverkiss
 #!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/MaYiHuiShou.png
-#!homepage=https://github.com/EvaFather/Eva
-
-[General]
-# 插件默认启用
-enable = true
 
 [Script]
-# 定时任务：每天 10:10 和 21:10 执行签到、任务、步数等
-飞蚂蚁签到 = type=cron, script-path=https://raw.githubusercontent.com/EvaFather/Eva/main/fyhs.js, cron "10 10,21 * * *", timeout=180
+# 1. 抓包获取 Token：当你打开小程序的指定页面时触发抓包
+# 拦截请求头，自动保存 Token 并且支持端A和端B双端数据
+http-request ^https:\/\/openapp\.fmy90\.com\/(user|shop|sign|active|step|home)\/ script-path=fyhs.js, requires-body=false, tag=飞蚂蚁获取Token
 
-# 抓包脚本：拦截业务请求头，自动保存 token（推荐，无需重新登录）
-飞蚂蚁抓包 = type=http-request, script-path=https://raw.githubusercontent.com/EvaFather/Eva/main/fyhs.js, pattern=^https:\/\/openapp\.fmy90\.com\/(user|shop|sign|active|step|home)\/, requires-body=false, tag=飞蚂蚁回收抓包
-
-# 备用抓包：拦截登录响应，可获取 userId 和手机号（需重新登录/清缓存触发）
-# 飞蚂蚁登录抓包 = type=http-response, script-path=https://raw.githubusercontent.com/EvaFather/Eva/main/fyhs.js, pattern=^https:\/\/openapp\.fmy90\.com\/auth\/wx\/login, requires-body=true, tag=飞蚂蚁登录抓包
+# 2. 每日定时任务：每天 10:10 和 21:10 自动执行签到和任务逻辑
+cron "10 10,21 * * *" script-path=fyhs.js, tag=飞蚂蚁每日签到
 
 [MITM]
+# 必须配置 MITM 解析对应域名才能成功抓包
 hostname = openapp.fmy90.com
