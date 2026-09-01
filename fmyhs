@@ -1,0 +1,21 @@
+#!name=飞蚂蚁回收
+#!desc=飞蚂蚁回收双小程序签到/任务/抓包（端A+端B）
+#!icon=https://raw.githubusercontent.com/Boyce3/Icons/main/Mobile/MaYiHuiShou.png
+#!homepage=https://github.com/EvaFather/Eva
+
+[General]
+# 插件默认启用
+enable = true
+
+[Script]
+# 定时任务：每天 10:10 和 21:10 执行签到、任务、步数等
+飞蚂蚁签到 = type=cron, script-path=https://raw.githubusercontent.com/EvaFather/Eva/main/fyhs.js, cron "10 10,21 * * *", timeout=180
+
+# 抓包脚本：拦截业务请求头，自动保存 token（推荐，无需重新登录）
+飞蚂蚁抓包 = type=http-request, script-path=https://raw.githubusercontent.com/EvaFather/Eva/main/fyhs.js, pattern=^https:\/\/openapp\.fmy90\.com\/(user|shop|sign|active|step|home)\/, requires-body=false, tag=飞蚂蚁回收抓包
+
+# 备用抓包：拦截登录响应，可获取 userId 和手机号（需重新登录/清缓存触发）
+# 飞蚂蚁登录抓包 = type=http-response, script-path=https://raw.githubusercontent.com/EvaFather/Eva/main/fyhs.js, pattern=^https:\/\/openapp\.fmy90\.com\/auth\/wx\/login, requires-body=true, tag=飞蚂蚁登录抓包
+
+[MITM]
+hostname = openapp.fmy90.com
