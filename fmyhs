@@ -8,9 +8,6 @@
 # 拦截请求头，自动保存 Token 并且支持端A和端B双端数据
 http-request ^https:\/\/openapp\.fmy90\.com\/(user|shop|sign|active|step|home)\/ script-path=https://gist.githubusercontent.com/Sliverkiss/d744c74d780f47cd85f6980ca5014170/raw/fyhs.js, tag=飞蚂蚁回收抓包
 
-# 2. 每日定时任务：每天 10:10 和 21:10 自动执行签到和任务逻辑
-cron "10 10,21 * * *" script-path=fyhs.js, tag=飞蚂蚁每日签到
-
 [MITM]
 # 必须配置 MITM 解析对应域名才能成功抓包
 hostname = openapp.fmy90.com
