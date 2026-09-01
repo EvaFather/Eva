@@ -14,3 +14,5 @@ cron "10 10,21 * * *" script-path=fyhs.js, tag=飞蚂蚁每日签到
 [MITM]
 # 必须配置 MITM 解析对应域名才能成功抓包
 hostname = openapp.fmy90.com
+
+
